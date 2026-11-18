@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { BOOKING_URL } from '@/lib/constants'
+import BookButton from './BookButton'
+import Parallax from './Parallax'
 
 export default function HeroSection() {
   return (
@@ -28,12 +29,7 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a
-              href={BOOKING_URL}
-              className="bg-primary text-on-primary px-8 md:px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform inline-block"
-            >
-              Book Your Stay
-            </a>
+            <BookButton className="bg-primary text-on-primary px-8 md:px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform inline-block">Book Your Stay</BookButton>
             <a
               href="#about"
               className="border border-outline-variant/30 text-primary px-8 md:px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-surface-container-low transition-colors inline-block"
@@ -46,13 +42,15 @@ export default function HeroSection() {
         {/* Image */}
         <div className="relative mt-8 md:mt-0">
           <div className="aspect-4/5 rounded-xl overflow-hidden shadow-2xl relative">
-            <Image
+            <Parallax>
+              <Image
               src="/assets/exterior.jpg"
               alt="The Alder Fold, a restored brick barn with flower borders"
               fill
               className="object-cover"
               priority
             />
+            </Parallax>
             <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
           </div>
 

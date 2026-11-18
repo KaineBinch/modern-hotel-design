@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import Reveal from './Reveal'
 
 export default function HeritageSection() {
   return (
     <section id="about" className="py-24 px-6 md:px-12 bg-surface">
-      <div className="container mx-auto">
+      <Reveal className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Image — order 2 on mobile, order 1 on tablet+ */}
@@ -71,7 +72,7 @@ export default function HeritageSection() {
           </div>
 
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

@@ -18,9 +18,19 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hotel-concept.kbdigitalco.co.uk'),
   title: 'The Alder Fold | Countryside B&B in Thornby Green',
   description:
     'A concept website for a fictional countryside bed and breakfast: restored barn rooms, a cooked breakfast and quiet gardens in the village of Thornby Green.',
+  openGraph: {
+    title: 'The Alder Fold | Countryside B&B in Thornby Green',
+    description: 'A concept website for a fictional countryside bed and breakfast.',
+    url: '/',
+    siteName: 'The Alder Fold',
+    type: 'website',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'The Alder Fold, a countryside bed and breakfast' }],
+  },
+  twitter: { card: 'summary_large_image' },
   keywords: ['bed and breakfast', 'countryside', 'barn conversion', 'B&B', 'concept website'],
 }
 

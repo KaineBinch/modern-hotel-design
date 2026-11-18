@@ -1,3 +1,4 @@
+import Reveal from './Reveal'
 const testimonials = [
   {
     quote:
@@ -40,7 +41,7 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section id="reviews" className="py-24 px-6 md:px-12 bg-surface-container">
-      <div className="container mx-auto">
+      <Reveal className="container mx-auto">
         <div className="max-w-5xl mx-auto">
 
           <div className="text-center mb-16">
@@ -108,7 +109,7 @@ export default function TestimonialsSection() {
           </div>
 
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

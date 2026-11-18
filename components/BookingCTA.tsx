@@ -1,9 +1,10 @@
-import { BOOKING_URL } from '@/lib/constants'
+import BookButton from './BookButton'
+import Reveal from './Reveal'
 
 export default function BookingCTA() {
   return (
     <section id="book" className="py-24 px-6 md:px-12 bg-background">
-      <div className="container mx-auto max-w-5xl">
+      <Reveal className="container mx-auto max-w-5xl">
         <div className="bg-surface-container-high rounded-3xl p-10 md:p-16 lg:p-20 text-center relative overflow-hidden">
 
           <div className="relative z-10">
@@ -35,12 +36,7 @@ export default function BookingCTA() {
                 </div>
                 <div className="font-medium text-primary text-sm">Included with every stay</div>
               </div>
-              <a
-                href={BOOKING_URL}
-                className="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:opacity-90 transition-opacity inline-block text-center whitespace-nowrap"
-              >
-                Check Availability
-              </a>
+              <BookButton className="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:opacity-90 transition-opacity inline-block text-center whitespace-nowrap">Check Availability</BookButton>
             </div>
 
             {/* Trust signals */}
@@ -55,7 +51,7 @@ export default function BookingCTA() {
           </div>
 
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

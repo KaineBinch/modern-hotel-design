@@ -6,10 +6,11 @@ import AmenitiesSection from '@/components/AmenitiesSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import BookingCTA from '@/components/BookingCTA'
 import Footer from '@/components/Footer'
+import BookingProvider from '@/components/BookingProvider'
 
 export default function Home() {
   return (
-    <>
+    <BookingProvider>
       <Navbar />
       <main>
         <HeroSection />
@@ -20,6 +21,6 @@ export default function Home() {
         <BookingCTA />
       </main>
       <Footer />
-    </>
+    </BookingProvider>
   )
 }

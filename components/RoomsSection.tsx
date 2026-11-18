@@ -1,10 +1,22 @@
 import Image from 'next/image'
-import { BOOKING_URL } from '@/lib/constants'
+import BookButton from './BookButton'
+import Reveal from './Reveal'
+import { roomById } from '@/lib/rooms'
+
+function Price({ id, className = '' }: { id: 'double' | 'family' | 'suite'; className?: string }) {
+  return (
+    <p className={`font-headline ${className}`}>
+      <span className="text-xs font-label uppercase tracking-widest opacity-70">From </span>
+      <span className="text-2xl">£{roomById(id).price}</span>
+      <span className="text-sm opacity-70"> / night, breakfast included</span>
+    </p>
+  )
+}
 
 export default function RoomsSection() {
   return (
     <section id="rooms" className="py-24 px-6 md:px-12 bg-surface-container-low">
-      <div className="container mx-auto">
+      <Reveal className="container mx-auto">
 
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-headline text-4xl text-primary mb-4 tracking-tight">
@@ -35,6 +47,7 @@ export default function RoomsSection() {
                   A cosy retreat featuring warm pine furnishings, perfect for couples seeking a
                   peaceful countryside escape.
                 </p>
+                <Price id="double" className="text-primary mb-5" />
                 <ul className="space-y-2 mb-8 text-sm text-secondary">
                   <li className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
@@ -53,12 +66,7 @@ export default function RoomsSection() {
                     Free high-speed WiFi
                   </li>
                 </ul>
-                <a
-                  href={BOOKING_URL}
-                  className="text-tertiary font-label text-xs uppercase tracking-widest font-bold border-b-2 border-tertiary/20 pb-1 w-fit hover:border-tertiary transition-colors"
-                >
-                  Book This Room
-                </a>
+                <BookButton room="double" className="text-tertiary font-label text-xs uppercase tracking-widest font-bold border-b-2 border-tertiary/20 pb-1 w-fit hover:border-tertiary transition-colors">Book This Room</BookButton>
               </div>
             </div>
           </div>
@@ -79,12 +87,8 @@ export default function RoomsSection() {
                 Versatile space for up to three guests with direct access to the central
                 courtyard, ideal for families.
               </p>
-              <a
-                href={BOOKING_URL}
-                className="text-tertiary font-label text-xs uppercase tracking-widest font-bold border-b-2 border-tertiary/20 pb-1 w-fit hover:border-tertiary transition-colors"
-              >
-                Explore Room
-              </a>
+              <Price id="family" className="text-primary mb-5" />
+              <BookButton room="family" className="text-tertiary font-label text-xs uppercase tracking-widest font-bold border-b-2 border-tertiary/20 pb-1 w-fit hover:border-tertiary transition-colors">Explore Room</BookButton>
             </div>
           </div>
 
@@ -103,12 +107,8 @@ export default function RoomsSection() {
                   a tall feature window and wide oak floors. The ultimate countryside experience
                   with premium en-suite amenities.
                 </p>
-                <a
-                  href={BOOKING_URL}
-                  className="bg-surface text-primary px-8 md:px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:opacity-90 transition-opacity inline-block w-fit"
-                >
-                  Book Heritage Suite
-                </a>
+                <p className="font-headline text-primary-fixed-dim mb-6"><span className="text-xs font-label uppercase tracking-widest opacity-70">From </span><span className="text-3xl">£{roomById('suite').price}</span><span className="text-sm opacity-70"> / night, breakfast included</span></p>
+                <BookButton room="suite" className="bg-surface text-primary px-8 md:px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:opacity-90 transition-opacity inline-block w-fit">Book Heritage Suite</BookButton>
               </div>
               <div className="md:col-span-2 h-64 md:h-auto min-h-[300px] relative">
                 <Image
@@ -122,7 +122,7 @@ export default function RoomsSection() {
           </div>
 
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

@@ -1,3 +1,4 @@
+import Reveal from './Reveal'
 const amenities = [
   {
     icon: 'wifi',
@@ -52,7 +53,7 @@ const amenities = [
 export default function AmenitiesSection() {
   return (
     <section id="amenities" className="py-24 px-6 md:px-12 bg-surface overflow-hidden">
-      <div className="container mx-auto">
+      <Reveal className="container mx-auto">
 
         {/* Header row */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
@@ -103,7 +104,7 @@ export default function AmenitiesSection() {
           ))}
         </div>
 
-      </div>
+      </Reveal>
     </section>
   )
 }

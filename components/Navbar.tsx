@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import BookButton from './BookButton'
 
 const navLinks = [
   { label: 'Home', href: '#' },
@@ -51,12 +52,7 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           {/* CTA — hidden on mobile, shown on md+ */}
-          <a
-            href="#book"
-            className="hidden md:inline-block bg-primary text-on-primary px-5 lg:px-8 py-2.5 lg:py-3 rounded-lg font-label text-xs lg:text-sm uppercase tracking-widest hover:bg-primary-container hover:text-on-surface transition-all duration-200"
-          >
-            Book Your Stay
-          </a>
+          <BookButton className="hidden md:inline-block bg-primary text-on-primary px-5 lg:px-8 py-2.5 lg:py-3 rounded-lg font-label text-xs lg:text-sm uppercase tracking-widest hover:bg-primary-container hover:text-on-surface transition-all duration-200">Book Your Stay</BookButton>
 
           {/* Hamburger — mobile only */}
           <button
@@ -101,13 +97,9 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#book"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 bg-primary text-on-primary px-6 py-3.5 rounded-lg font-label text-sm uppercase tracking-widest text-center hover:bg-primary-container hover:text-on-surface transition-all"
-          >
-            Book Your Stay
-          </a>
+          <div onClick={() => setMobileOpen(false)} className="contents">
+            <BookButton className="mt-4 bg-primary text-on-primary px-6 py-3.5 rounded-lg font-label text-sm uppercase tracking-widest text-center hover:bg-primary-container hover:text-on-surface transition-all">Book Your Stay</BookButton>
+          </div>
         </div>
       </div>
     </nav>
