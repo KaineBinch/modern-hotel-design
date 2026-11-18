@@ -14,9 +14,21 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('#')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      // The active link is the last section whose top has passed just under the nav.
+      let current = '#'
+      for (const link of navLinks) {
+        if (link.href === '#') continue
+        const el = document.querySelector(link.href)
+        if (el && el.getBoundingClientRect().top <= 140) current = link.href
+      }
+      setActive(current)
+    }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -42,7 +54,10 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm lg:text-base text-secondary hover:text-primary transition-colors duration-300 first:text-primary first:border-b-2 first:border-primary first:pb-0.5"
+              aria-current={active === link.href ? 'true' : undefined}
+              className={`text-sm lg:text-base border-b-2 pb-0.5 transition-colors duration-300 hover:text-primary ${
+                active === link.href ? 'text-primary border-primary' : 'text-secondary border-transparent'
+              }`}
             >
               {link.label}
             </a>
@@ -92,7 +107,10 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="font-headline text-base text-secondary hover:text-primary py-3 border-b border-outline-variant/10 last:border-0 transition-colors"
+              aria-current={active === link.href ? 'true' : undefined}
+              className={`font-headline text-base hover:text-primary py-3 border-b border-outline-variant/10 last:border-0 transition-colors ${
+                active === link.href ? 'text-primary font-semibold' : 'text-secondary'
+              }`}
             >
               {link.label}
             </a>
