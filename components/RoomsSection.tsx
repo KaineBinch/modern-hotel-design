@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { BOOKING_URL } from '@/lib/constants'
-import { asset } from '@/lib/assets'
 
 export default function RoomsSection() {
   return (
@@ -24,7 +23,7 @@ export default function RoomsSection() {
             <div className="flex flex-col md:grid md:grid-cols-2 h-full">
               <div className="h-64 md:h-full overflow-hidden relative min-h-[256px]">
                 <Image
-                  src={asset('/assets/room-double.jpg')}
+                  src="/assets/room-double.jpg"
                   alt="The Classic Double, a pine-furnished bedroom with a double bed"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -68,7 +67,7 @@ export default function RoomsSection() {
           <div className="md:col-span-4 bg-surface rounded-2xl overflow-hidden group shadow-xs hover:shadow-xl transition-shadow duration-500 flex flex-col">
             <div className="h-64 overflow-hidden relative">
               <Image
-                src={asset('/assets/room-family.jpg')}
+                src="/assets/room-family.jpg"
                 alt="The Family Studio, a bright room with three single beds and a large window"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -113,7 +112,7 @@ export default function RoomsSection() {
               </div>
               <div className="md:col-span-2 h-64 md:h-auto min-h-[300px] relative">
                 <Image
-                  src={asset('/assets/suite.jpg')}
+                  src="/assets/suite.jpg"
                   alt="The Heritage Family Suite, a high-ceilinged room with exposed brick and a tall window"
                   fill
                   className="object-cover opacity-90"

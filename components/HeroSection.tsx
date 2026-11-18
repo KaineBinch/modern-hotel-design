@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { BOOKING_URL } from '@/lib/constants'
-import { asset } from '@/lib/assets'
 
 export default function HeroSection() {
   return (
@@ -48,7 +47,7 @@ export default function HeroSection() {
         <div className="relative mt-8 md:mt-0">
           <div className="aspect-4/5 rounded-xl overflow-hidden shadow-2xl relative">
             <Image
-              src={asset('/assets/exterior.jpg')}
+              src="/assets/exterior.jpg"
               alt="The Alder Fold, a restored brick barn with flower borders"
               fill
               className="object-cover"

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { asset } from '@/lib/assets'
 
 export default function HeritageSection() {
   return (
@@ -11,7 +10,7 @@ export default function HeritageSection() {
           <div className="order-2 md:order-1 relative">
             <div className="rounded-2xl overflow-hidden shadow-xs aspect-4/3 relative">
               <Image
-                src={asset('/assets/heritage.jpg')}
+                src="/assets/heritage.jpg"
                 alt="A restored barn interior with exposed brick, oak beams and a long wooden table"
                 fill
                 className="object-cover"
